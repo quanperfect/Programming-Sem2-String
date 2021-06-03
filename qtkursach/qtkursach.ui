@@ -116,7 +116,7 @@ QPushButton:pressed {
 }</string>
    </property>
    <property name="text">
-    <string>СЛОЖИТЬ</string>
+    <string>УМНОЖИТЬ</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="inputsearchletter2">
@@ -743,7 +743,7 @@ QPushButton:pressed {
     <rect>
      <x>10</x>
      <y>470</y>
-     <width>351</width>
+     <width>361</width>
      <height>41</height>
     </rect>
    </property>
@@ -757,7 +757,7 @@ QPushButton:pressed {
     <string notr="true">color: white</string>
    </property>
    <property name="text">
-    <string>Сложение комплексных чисел</string>
+    <string>Умножение комплексных чисел</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_9">
@@ -780,6 +780,99 @@ QPushButton:pressed {
    </property>
    <property name="text">
     <string>Итог</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="buttontextstroka4">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>330</y>
+     <width>131</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bebas Neue Pro SemiExp XBold</family>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	background-color: #FF3F00; 
+	color: white;
+}
+QPushButton:pressed {
+	background-color: #222222;
+	color: black;
+}</string>
+   </property>
+   <property name="text">
+    <string>ПРИРАВНЯТЬ</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="buttontextstroka3">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>290</y>
+     <width>131</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bebas Neue Pro SemiExp XBold</family>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	background-color: #FF3F00; 
+	color: white;
+}
+QPushButton:pressed {
+	background-color: #222222;
+	color: black;
+}</string>
+   </property>
+   <property name="text">
+    <string>ИНВЕРТИРОВАТЬ</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="buttoncompstroka2">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>670</y>
+     <width>131</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Bebas Neue Pro SemiExp XBold</family>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+	background-color: #FF3F00; 
+	color: white;
+}
+QPushButton:pressed {
+	background-color: #222222;
+	color: black;
+}</string>
+   </property>
+   <property name="text">
+    <string>ПРИРАВНЯТЬ</string>
    </property>
   </widget>
  </widget>

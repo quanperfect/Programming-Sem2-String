@@ -174,34 +174,43 @@ ComplStr operator+(const ComplStr& obj1, const ComplStr& obj2)
     nre1 = atoi(re1);
     nre2 = atoi(re2);
     char* pTmpCh;
-    int A = sum(nre1, nre2);
+
+   // int A = nre1 + nre2;
+    nim1 = atoi(im1);
+    nim2 = atoi(im2);
+    char* pTmpCh1;
+    int A = (nre1 * nre2) - (nim1 * nim2);
     if (strlen(re1) >= strlen(re2))
     {
-        pTmpCh = new char[strlen(re1) + 2];
-        _itoa_s(A, pTmpCh, strlen(re1) + 2, 10);
+        pTmpCh = new char[strlen(re1) + 6];
+        _itoa_s(A, pTmpCh, strlen(re1) + 6, 10);
     }
     else
     {
-        pTmpCh = new char[strlen(re2) + 2];
-        _itoa_s(A, pTmpCh, strlen(re2) + 2, 10);
+        pTmpCh = new char[strlen(re2) + 6];
+        _itoa_s(A, pTmpCh, strlen(re2) + 6, 10);
     }
     if (re1) delete[] re1;
     re1 = pTmpCh;
 
     /// 
+    /*
     nim1 = atoi(im1);
     nim2 = atoi(im2);
     char* pTmpCh1;
-    int B = sum(nim1, nim2);
+    */
+    //int B = nim1+nim2;
+    int B = nre1 * nim2 + nre2 * nim1;
+
     if (strlen(im1) >= strlen(im2))
     {
-        pTmpCh1 = new char[strlen(im1) + 2];
-        _itoa_s(B, pTmpCh1, strlen(im1) + 2, 10);
+        pTmpCh1 = new char[strlen(im1) + 6];
+        _itoa_s(B, pTmpCh1, strlen(im1) + 6, 10);
     }
     else
     {
-        pTmpCh1 = new char[strlen(im2) + 2];
-        _itoa_s(B, pTmpCh1, strlen(im2) + 2, 10);
+        pTmpCh1 = new char[strlen(im2) + 6];
+        _itoa_s(B, pTmpCh1, strlen(im2) + 6, 10);
     }
 
     if (im1) delete[] im1;

@@ -12,9 +12,11 @@ public:
 	IdentStr& operator=(const IdentStr&); // конструктор присваивания
 
 	friend int number(const IdentStr&, char); // поиск первого вхождения символа в строку
-
+	IdentStr operator ~();
 	friend IdentStr operator + (const IdentStr&, const IdentStr&); //конкатенация строк
 	friend IdentStr operator< (const IdentStr&, const IdentStr&); //сравнение строк
+	friend IdentStr operator + (const IdentStr&, const char*); //конкатенация строк
+	friend IdentStr bykva(const IdentStr&, char, int); // поиск первого вхождения символа в строку
 };
 
 #endif

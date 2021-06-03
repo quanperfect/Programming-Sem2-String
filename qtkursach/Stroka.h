@@ -11,7 +11,7 @@ public:
 	Stroka(char); // конструктор, принимающий в качестве параметра символ
 	Stroka(const char*); //конструктор, принимающий в качестве параметра си-строку
 	Stroka(const Stroka&); // конструктор копирования
-	~Stroka(); //деструктор
+	virtual ~Stroka(); //деструктор
 
 	char* GetStr(void) const
 	{

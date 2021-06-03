@@ -108,14 +108,13 @@ IdentStr& IdentStr:: operator=(const IdentStr& S)
 
 int number(const IdentStr& S, char x)
 {
-	int i = 0, k = -1;
+	int i = -1, k = -1;
 
 	while (S.pCh[i++] != '\0')
 	{
 		if (S.pCh[i] == (int)x)
 		{
 			k = i;
-
 			cout << "symbol's number is " << endl;
 			return k;
 		}
@@ -129,6 +128,25 @@ int number(const IdentStr& S, char x)
 	return k;
 
 	cout << "IdentStr number(const char* S, const char x)" << endl;
+}
+
+IdentStr bykva(const IdentStr& S, char x, int e)
+{
+	IdentStr Sos(S);
+	if (e < Sos.Getline())
+	{
+		Sos.pCh[e] = x;
+	}
+
+	if (!((Sos.pCh[0] >= 'a' && Sos.pCh[0] <= 'z') || (Sos.pCh[0] >= 'A' && Sos.pCh[0] <= 'Z') || (Sos.pCh[0] == '_')))
+	{
+		cout << "Bad Stroka, pCh[0]=" << Sos.pCh[0] << endl;
+		cout << "AAAAAAAAAAAAAAAAAAAAAAAAAAAA" << endl;
+		Sos = "bad stroka";
+	}
+	return Sos;
+
+	cout << "IdentStr bykva(const char* S, const char x, int e)" << endl;
 }
 
 IdentStr operator + (const IdentStr& pobj1, const IdentStr& pobj2)
@@ -148,40 +166,112 @@ IdentStr operator + (const IdentStr& pobj1, const IdentStr& pobj2)
 	return tmp;
 }
 
+IdentStr operator + (const IdentStr& pobj1, const char* pobj2)
+{
+	IdentStr tmp1(pobj2);
+	IdentStr tmp(pobj1.Getline() + tmp1.Getline());
+	int i = 0, j = 0;
+	while (tmp.pCh[i++] = pobj1.pCh[j++]);
+	--i;
+	j = 0;
+	while (tmp.pCh[i++] = tmp1.pCh[j++]);
+	cout << "IdentStr operator + (const IdentStr& pobj1, const char* pobj2)" << endl;
+	return tmp;
+}
+
+
 IdentStr operator < (const IdentStr& pobj1, const IdentStr& pobj2)
 {
-	int j = 0;
+	int j = 0, e = 0;
 
 	IdentStr x;
 
-	if (pobj1.len < pobj2.len)
+	if (pobj1.len == pobj2.len)
 	{
 		for (int i = 0; i < pobj1.len; i++)
 		{
-			if (pobj1.pCh[i] < pobj2.pCh[i]) j++;
+			if (pobj1.pCh[i] == pobj2.pCh[i]) e++;
 		}
-
-		if (j != pobj1.len)
-			x = "no";
+		if (e != pobj1.len)
+		{
+			int i = 0;
+			x = "not equal";
+			while (pobj1.pCh[i] == pobj2.pCh[i])
+			{
+				i++;
+			}
+			if (pobj1.pCh[i] < pobj2.pCh[i])
+			{
+				x = "yes";
+			}
+			else
+				x = "no";
+		}
 		else
-			x = "yes";
+			x = "equal";
 	}
-
 	else
 	{
-		for (int i = 0; i < pobj2.len; i++)
+		if (pobj1.len < pobj2.len)
 		{
-			if (pobj1.pCh[i] < pobj2.pCh[i]) j++;
+			int i = 0;
+			for (i = 0; i < pobj1.len; i++)
+			{
+				if (pobj1.pCh[i] != pobj2.pCh[i])
+				{
+					break;
+				}
+			}
+			if (pobj1.pCh[i] < pobj2.pCh[i])
+			{
+				x = "yes";
+			}
+			else x = "no";
 		}
-
-		if (j != pobj2.len)
-			x = "no";
-
 		else
-			x = "yes";
+		{
+			int i = 0;
+			for (i = 0; i < pobj2.len; i++)
+			{
+				if (pobj1.pCh[i] != pobj2.pCh[i])
+				{
+					break;
+				}
+			}
+			if (pobj1.pCh[i] < pobj2.pCh[i])
+			{
+				x = "yes";
+			}
+			else x = "no";
+		}
 	}
+	
 
 	cout << "IdentStr operator < (const IdentStr& pobj1, const IdentStr& pobj2)" << endl;
 
 	return x;
+}
+
+IdentStr IdentStr :: operator ~()
+{
+	int i, j;
+	char tmp;
+	for (i = 0, j = len - 1; i < len / 2; i++, j--)
+	{
+		tmp = pCh[i];
+		pCh[i] = pCh[j];
+		pCh[j] = tmp;
+	}
+	if (!((pCh[0] >= 'a' && pCh[0] <= 'z') || (pCh[0] >= 'A' && pCh[0] <= 'Z') || (pCh[0] == '_')))
+	{
+		cout << "Bad Stroka, pCh[0]=" << pCh[0] << endl;
+
+		if (pCh) delete[] pCh;
+
+		len = 0;
+		pCh = new char[len + 1];
+		pCh[0] = '\0';
+	}
+	cout << "IdentStr IdentStr :: operator ~()" << endl;
+	return*this;
 }
